@@ -1,0 +1,12 @@
+def arrayPairSum(nums):
+    nums.sort() #Sort the array in ascending order
+    max_sum = 0
+
+    for i in range(0, len(nums), 2):
+        max_sum =+ nums[i] # Add the minimum value of each pair to the sum
+
+    return max_sum
+
+nums = [1,2,3,4,5,6,7]
+maximized_sum =arrayPairSum(nums)
+print(maximized_sum)

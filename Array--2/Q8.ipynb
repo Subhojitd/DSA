@@ -1,0 +1,22 @@
+def minimumScore(nums, k):
+    nums.sort()  # Sort the array in ascending order
+
+    # Check the score if we don't perform any operation
+    initial_score = nums[-1] - nums[0]
+
+    # Iterate over the array excluding the first and last elements
+    for i in range(1, len(nums) - 1):
+        # Calculate the potential new maximum and minimum values after applying the operation
+        new_max = max(nums[i] + k, nums[-1] - k)
+        new_min = min(nums[i] - k, nums[0] + k)
+
+        # Update the score if the new score is smaller than the initial score
+        initial_score = min(initial_score, new_max - new_min)
+
+    return initial_score
+
+# Example usage
+nums = [1]
+k = 0
+min_score = minimumScore(nums, k)
+print(min_score)
